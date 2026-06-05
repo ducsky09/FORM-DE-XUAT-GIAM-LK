@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phiếu Đề Xuất Giảm Linh Kiện Bảo Hành</title>
+<style>
+  :root {
+    --blue-50: #E6F1FB;
+    --blue-100: #B5D4F4;
+    --blue-600: #185FA5;
+    --blue-700: #0C447C;
+    --blue-800: #042C53;
+    --gray-50: #F8F7F4;
+    --gray-100: #ECEAE3;
+    --gray-200: #D3D1C7;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --gray-900: #1A1A18;
+    --green-100: #EAF3DE;
+    --green-600: #3B6D11;
+    --red-100: #FCEBEB;
+    --red-600: #A32D2D;
+    --amber-100: #FAEEDA;
+    --amber-600: #854F0B;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0a1628 0%, #0d2140 40%, #0a1628 100%);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: var(--gray-900);
+  }
+
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+
+  .page-header .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .page-header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .page-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 6px;
+  }
+
+  .form-card {
+    background: #fff;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  .form-body {
+    padding: 2rem 2rem 1.5rem;
+  }
+
+  .section {
+    margin-bottom: 1.25rem;
+    border: 0.5px solid var(--gray-100);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .section-header {
+    background: var(--gray-50);
+    border-bottom: 0.5px solid var(--gray-100);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .section-icon.blue { background: var(--blue-600); }
+  .section-icon.teal { background: #0F6E56; }
+  .section-icon.coral { background: #993C1D; }
+  .section-icon.purple { background: #534AB7; }
+  .section-icon.amber { background: var(--amber-600); }
+
+  .section-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--gray-600);
+  }
+
+  .section-body {
+    padding: 16px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .cols-2 { grid-template-columns: 1fr 1fr; }
+  .cols-4 { grid-template-columns: 1fr 1fr 1fr 90px; }
+  .cols-1 { grid-template-columns: 1fr; }
+
+  .field { display: flex; flex-direction: column; gap: 4px; }
+
+  .field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-600);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .field label .req { color: #E24B4A; font-size: 13px; }
+
+  .field input, .field select, .field textarea {
+    height: 38px;
+    padding: 0 11px;
+    font-size: 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: #fff;
+    color: var(--gray-900);
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+  }
+
+  .field textarea {
+    height: auto;
+    padding: 8px 11px;
+    resize: none;
+  }
+
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--blue-600);
+    box-shadow: 0 0 0 3px rgba(24,95,165,0.12);
+  }
+
+  .field input.readonly-field {
+    background: var(--gray-50);
+    color: var(--gray-600);
+    border-color: var(--gray-100);
+    cursor: default;
+  }
+
+  .field input.auto-field {
+    background: #EAF3DE;
+    color: var(--green-600);
+    border-color: #C0DD97;
+    font-size: 13px;
+    cursor: default;
+  }
+
+  .field .hint {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+  }
+
+  .field .err-msg {
+    font-size: 11px;
+    color: var(--red-600);
+    display: none;
+    line-height: 1.4;
+  }
+
+  .field.has-error input,
+  .field.has-error textarea {
+    border-color: #E24B4A;
+    box-shadow: 0 0 0 3px rgba(226,75,74,0.1);
+  }
+
+  .field.has-error .err-msg { display: block; }
+
+  .field.is-valid input,
+  .field.is-valid textarea {
+    border-color: #639922;
+  }
+
+  .form-footer {
+    background: var(--gray-50);
+    border-top: 0.5px solid var(--gray-100);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 24px;
+    height: 44px;
+    background: var(--blue-600);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover { background: var(--blue-700); }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:disabled {
+    background: var(--gray-200);
+    color: var(--gray-400);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 18px;
+    height: 44px;
+    background: transparent;
+    color: var(--gray-600);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--gray-50);
+    border-color: var(--gray-400);
+  }
+
+  .status-banner {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 500;
+    display: none;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-banner.success {
+    display: flex;
+    background: var(--green-100);
+    color: var(--green-600);
+    border: 1px solid #C0DD97;
+  }
+
+  .status-banner.error {
+    display: flex;
+    background: var(--red-100);
+    color: var(--red-600);
+    border: 1px solid #F7C1C1;
+  }
+
+  .status-banner.info {
+    display: flex;
+    background: var(--blue-50);
+    color: var(--blue-600);
+    border: 1px solid var(--blue-100);
+  }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Config bar */
+  .config-bar {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .config-bar label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-600);
+    white-space: nowrap;
+  }
+
+  .config-bar input {
+    flex: 1;
+    min-width: 200px;
+    height: 34px;
+    padding: 0 10px;
+    font-size: 13px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    outline: none;
+    color: var(--gray-900);
+    font-family: monospace;
+  }
+
+  .config-bar input:focus {
+    border-color: var(--blue-600);
+    box-shadow: 0 0 0 2px rgba(24,95,165,0.1);
+  }
+
+  .config-bar .save-btn {
+    padding: 0 14px;
+    height: 34px;
+    background: var(--blue-600);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .config-bar .save-btn:hover { background: var(--blue-700); }
+
+  .script-url-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .script-url-badge.connected {
+    background: var(--green-100);
+    color: var(--green-600);
+  }
+
+  .script-url-badge.not-connected {
+    background: var(--amber-100);
+    color: var(--amber-600);
+  }
+
+  /* Record counter */
+  .record-counter {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--gray-400);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 680px) {
+    .cols-3, .cols-2, .cols-4 { grid-template-columns: 1fr; }
+    .form-body { padding: 1.25rem 1rem; }
+    .form-footer { padding: 1rem; }
+    .page-header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <div class="page-header">
+    <div class="logo-badge">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect width="14" height="14" rx="3" fill="rgba(255,255,255,0.3)"/><path d="M3 7h8M7 3v8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Hệ thống quản lý bảo hành
+    </div>
+    <h1>Phiếu Đề Xuất Giảm Linh Kiện Bảo Hành</h1>
+    <p>Nhập liệu và ghi dữ liệu trực tiếp vào Google Sheets</p>
+  </div>
+
+  <div class="form-card">
+    <div class="form-body">
+
+      <!-- Config bar -->
+      <div class="config-bar">
+        <label>🔗 Apps Script URL:</label>
+        <input type="text" id="script-url-input" placeholder="https://script.google.com/macros/s/..." spellcheck="false">
+        <button class="save-btn" onclick="saveScriptUrl()">Lưu URL</button>
+        <span class="script-url-badge not-connected" id="url-badge">Chưa cấu hình</span>
+        <span class="record-counter" id="record-counter">Đã ghi: <strong>0</strong> phiếu</span>
+      </div>
+
+
+      <!-- SECTION 1: Thông tin phiếu -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon blue">1</div>
+          <span class="section-title">Thông tin phiếu &amp; trạng thái</span>
+        </div>
+        <div class="section-body cols-3">
+          <div class="field" id="f-thoigian">
+            <label>Thời gian đề xuất</label>
+            <input type="text" id="thoigian" class="readonly-field" readonly>
+            <span class="hint">Tự động cập nhật theo thời gian thực</span>
+          </div>
+          <div class="field" id="f-sophieu">
+            <label>Số phiếu bảo hành (BHNB) <span class="req">*</span></label>
+            <input type="text" id="sophieu" placeholder="PBH000000" maxlength="9" autocomplete="off">
+            <span class="hint">9 ký tự: PBH + 6 chữ số</span>
+            <span class="err-msg">Phải gồm đúng 9 ký tự, bắt đầu bằng PBH và 6 chữ số (VD: PBH123456)</span>
+          </div>
+          <div class="field" id="f-trangthaipbh">
+            <label>Trạng thái PBH (BHNB) <span class="req">*</span></label>
+            <input type="text" id="trangthaipbh" placeholder="Tối thiểu 8 ký tự...">
+            <span class="hint">Độ dài từ 8 ký tự trở lên</span>
+            <span class="err-msg">Phải có độ dài từ 8 ký tự trở lên</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Thông tin sản phẩm -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon teal">2</div>
+          <span class="section-title">Thông tin sản phẩm</span>
+        </div>
+        <div class="section-body cols-3">
+          <div class="field" id="f-masp">
+            <label>Mã sản phẩm <span class="req">*</span></label>
+            <input type="text" id="masp" placeholder="7XXXXX" maxlength="6" autocomplete="off">
+            <span class="hint">6 chữ số, bắt đầu bằng 7</span>
+            <span class="err-msg">Phải gồm đúng 6 chữ số, bắt đầu bằng 7 (VD: 712345)</span>
+          </div>
+          <div class="field" id="f-tensp">
+            <label>Tên sản phẩm <span class="req">*</span></label>
+            <input type="text" id="tensp" placeholder="Nhập tên sản phẩm...">
+            <span class="hint">Tối thiểu 10 ký tự</span>
+            <span class="err-msg">Phải có độ dài từ 10 ký tự trở lên</span>
+          </div>
+          <div class="field" id="f-serial">
+            <label>Serial No. <span class="req">*</span></label>
+            <input type="text" id="serial" placeholder="Serial number...">
+            <span class="hint">Tối thiểu 10 ký tự</span>
+            <span class="err-msg">Phải có độ dài từ 10 ký tự trở lên</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Linh kiện giảm -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon coral">3</div>
+          <span class="section-title">Thông tin linh kiện giảm</span>
+        </div>
+        <div class="section-body cols-4">
+          <div class="field" id="f-codekhoGiam">
+            <label>Code kho giảm <span class="req">*</span></label>
+            <input type="text" id="codekhoGiam" placeholder="MXXX" maxlength="4" autocomplete="off" style="text-transform:uppercase">
+            <span class="hint">4 ký tự, bắt đầu bằng chữ cái viết hoa</span>
+            <span class="err-msg">Phải gồm đúng 4 ký tự, ký tự đầu là chữ hoa</span>
+          </div>
+          <div class="field" id="f-malk">
+            <label>Mã LK giảm <span class="req">*</span></label>
+            <input type="text" id="malk" placeholder="7XXXXX" maxlength="6" autocomplete="off">
+            <span class="hint">6 chữ số, bắt đầu bằng 7</span>
+            <span class="err-msg">Phải gồm đúng 6 chữ số, bắt đầu bằng 7</span>
+          </div>
+          <div class="field" id="f-tenlk">
+            <label>Tên LK giảm <span class="req">*</span></label>
+            <input type="text" id="tenlk" placeholder="Tên linh kiện...">
+            <span class="hint">Tối thiểu 10 ký tự</span>
+            <span class="err-msg">Phải có độ dài từ 10 ký tự trở lên</span>
+          </div>
+          <div class="field" id="f-soluong">
+            <label>Số lượng <span class="req">*</span></label>
+            <input type="number" id="soluong" placeholder="0" min="1">
+            <span class="err-msg">Phải là số &gt; 0</span>
+          </div>
+        </div>
+        <div class="section-body cols-1" style="padding-top:0">
+          <div class="field" id="f-tinhtrang">
+            <label>Tình trạng đề nghị giảm</label>
+            <input type="text" id="tinhtrang" class="auto-field" readonly value="SP đã trả kho bán..đề nghị giảm LK ảo">
+            <span class="hint">✓ Tự động điền sẵn — không chỉnh sửa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: LK tăng trước đó -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon purple">4</div>
+          <span class="section-title">Thông tin linh kiện tăng trước đó</span>
+        </div>
+        <div class="section-body cols-3">
+          <div class="field" id="f-malkTang">
+            <label>Mã LK tăng trước đó <span class="req">*</span></label>
+            <input type="text" id="malkTang" placeholder="7XXXXX" maxlength="6" autocomplete="off">
+            <span class="hint">6 chữ số, bắt đầu bằng 7</span>
+            <span class="err-msg">Phải gồm đúng 6 chữ số, bắt đầu bằng 7</span>
+          </div>
+          <div class="field" id="f-codekhoTang">
+            <label>Code kho đã tăng trước đó <span class="req">*</span></label>
+            <input type="text" id="codekhoTang" placeholder="MXXX" maxlength="4" autocomplete="off" style="text-transform:uppercase">
+            <span class="hint">4 ký tự, bắt đầu bằng chữ cái viết hoa</span>
+            <span class="err-msg">Phải gồm đúng 4 ký tự, ký tự đầu là chữ hoa</span>
+          </div>
+          <div class="field" id="f-sopnm">
+            <label>Số PNM* đã tăng <span class="req">*</span></label>
+            <input type="text" id="sopnm" placeholder="PNM...">
+            <span class="hint">≥10 ký tự, bắt đầu bằng PNM</span>
+            <span class="err-msg">Phải có từ 10 ký tự trở lên và bắt đầu bằng PNM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: Trả kho bán -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon amber">5</div>
+          <span class="section-title">Thông tin trả kho bán (BHNB)</span>
+        </div>
+        <div class="section-body cols-2">
+          <div class="field" id="f-ngayTra">
+            <label>Ngày trả kho bán (BHNB) <span class="req">*</span></label>
+            <input type="text" id="ngayTra" placeholder="DD/MM/YYYY">
+            <span class="hint">Định dạng ngày/tháng/năm (VD: 01/06/2025)</span>
+            <span class="err-msg">Phải đúng định dạng ngày/tháng/năm hợp lệ</span>
+          </div>
+          <div class="field" id="f-sopxlc">
+            <label>Số PXLC* trả kho bán <span class="req">*</span></label>
+            <input type="text" id="sopxlc" placeholder="PXLC...">
+            <span class="hint">≥10 ký tự, bắt đầu bằng PXLC</span>
+            <span class="err-msg">Phải có từ 10 ký tự trở lên và bắt đầu bằng PXLC</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /form-body -->
+
+    <div class="form-footer">
+      <button class="btn-primary" id="btn-submit" onclick="submitForm()">
+        <div class="spinner" id="spinner"></div>
+        <svg id="send-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 8L2 2l2.5 6L2 14l12-6z" fill="currentColor"/></svg>
+        Ghi vào Google Sheets
+      </button>
+      <button class="btn-secondary" onclick="resetForm()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7a6 6 0 1 0 6-6 6 6 0 0 0-4.24 1.76L1 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Làm mới
+      </button>
+      <div class="status-banner" id="status-banner"></div>
+    </div>
+  </div><!-- /form-card -->
+
+  <p style="text-align:center; margin-top:1.5rem; font-size:12px; color:rgba(255,255,255,0.35);">
+    Google Sheets ID: 1BVGRfiTVzMSzmyNmBI12Yz0fsEuEATv7vwi8v53YjgU
+  </p>
+</div><!-- /page-wrapper -->
+
+<script>
+const SHEET_ID = '1BVGRfiTVzMSzmyNmBI12Yz0fsEuEATv7vwi8v53YjgU';
+const SHEET_NAME = 'Sheet1';
+const STORAGE_KEY_URL = 'apps_script_url';
+const STORAGE_KEY_COUNT = 'record_count';
+
+const DEFAULT_URL = 'https://script.google.com/macros/s/AKfycbx9IpEjijwnRctTOG2MM5VXOpOf7xFZ5nYeFa0qqg8Xp210ppxLp9OUrqNrupjE5lY/exec';
+
+// Load saved URL (fallback to default)
+let scriptUrl = localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_URL;
+let recordCount = parseInt(localStorage.getItem(STORAGE_KEY_COUNT) || '0');
+
+document.getElementById('script-url-input').value = scriptUrl;
+updateUrlBadge();
+updateCounter();
+
+function saveScriptUrl() {
+  const val = document.getElementById('script-url-input').value.trim();
+  if (!val) { showStatus('Vui lòng nhập URL Apps Script trước.', 'error'); return; }
+  if (!val.startsWith('https://script.google.com/')) {
+    showStatus('URL không hợp lệ. Phải bắt đầu bằng https://script.google.com/', 'error'); return;
+  }
+  scriptUrl = val;
+  localStorage.setItem(STORAGE_KEY_URL, scriptUrl);
+  updateUrlBadge();
+  showStatus('✓ Đã lưu URL Apps Script. Sẵn sàng ghi dữ liệu!', 'success');
+}
+
+function updateUrlBadge() {
+  const badge = document.getElementById('url-badge');
+  badge.textContent = '✓ Đã kết nối';
+  badge.className = 'script-url-badge connected';
+}
+
+function updateCounter() {
+  document.getElementById('record-counter').innerHTML = `Đã ghi: <strong>${recordCount}</strong> phiếu`;
+}
+
+// Real-time clock
+function pad2(n) { return String(n).padStart(2, '0'); }
+function nowStr() {
+  const d = new Date();
+  return pad2(d.getDate()) + '/' + pad2(d.getMonth()+1) + '/' + d.getFullYear()
+    + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes()) + ':' + pad2(d.getSeconds());
+}
+document.getElementById('thoigian').value = nowStr();
+setInterval(() => { document.getElementById('thoigian').value = nowStr(); }, 1000);
+
+// Validation rules
+const rules = {
+  sophieu:      v => /^PBH\d{6}$/.test(v),
+  trangthaipbh: v => v.trim().length >= 8,
+  masp:         v => /^\d{6}$/.test(v) && v[0] === '7',
+  tensp:        v => v.trim().length >= 10,
+  serial:       v => v.trim().length >= 10,
+  codekhoGiam:  v => v.length === 4 && /^[A-Z]/.test(v),
+  malk:         v => /^\d{6}$/.test(v) && v[0] === '7',
+  tenlk:        v => v.trim().length >= 10,
+  soluong:      v => v !== '' && !isNaN(Number(v)) && Number(v) > 0,
+  malkTang:     v => /^\d{6}$/.test(v) && v[0] === '7',
+  codekhoTang:  v => v.length === 4 && /^[A-Z]/.test(v),
+  sopnm:        v => v.trim().length >= 10 && v.trim().toUpperCase().startsWith('PNM'),
+  ngayTra:      v => {
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(v)) return false;
+    const [d, m, y] = v.split('/').map(Number);
+    const dt = new Date(y, m-1, d);
+    return dt.getFullYear() === y && dt.getMonth() === m-1 && dt.getDate() === d;
+  },
+  sopxlc:       v => v.trim().length >= 10 && v.trim().toUpperCase().startsWith('PXLC'),
+};
+
+// Auto uppercase for code fields
+['codekhoGiam', 'codekhoTang'].forEach(id => {
+  document.getElementById(id).addEventListener('input', function() {
+    const pos = this.selectionStart;
+    this.value = this.value.toUpperCase();
+    this.setSelectionRange(pos, pos);
+  });
+});
+
+function validate(id) {
+  const el = document.getElementById(id);
+  const wrap = document.getElementById('f-' + id);
+  if (!el || !wrap || !rules[id]) return true;
+  const val = el.value.trim();
+  const ok = rules[id](val);
+  if (val === '') {
+    wrap.classList.remove('has-error', 'is-valid');
+    return false;
+  }
+  wrap.classList.toggle('has-error', !ok);
+  wrap.classList.toggle('is-valid', ok);
+  return ok;
+}
+
+Object.keys(rules).forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('blur', () => validate(id));
+  el.addEventListener('input', () => {
+    const wrap = document.getElementById('f-' + id);
+    if (wrap && wrap.classList.contains('has-error')) validate(id);
+  });
+});
+
+function showStatus(msg, type) {
+  const el = document.getElementById('status-banner');
+  el.textContent = msg;
+  el.className = 'status-banner ' + type;
+}
+
+function setLoading(on) {
+  document.getElementById('spinner').style.display = on ? 'inline-block' : 'none';
+  document.getElementById('send-icon').style.display = on ? 'none' : 'block';
+  document.getElementById('btn-submit').disabled = on;
+}
+
+async function submitForm() {
+  let allOk = true;
+  Object.keys(rules).forEach(id => { if (!validate(id)) allOk = false; });
+
+  if (!allOk) {
+    showStatus('⚠ Vui lòng kiểm tra lại các trường còn thiếu hoặc sai định dạng.', 'error');
+    // Scroll to first error
+    const firstErr = document.querySelector('.field.has-error');
+    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  if (!scriptUrl) {
+    showStatus('⚠ Chưa cấu hình Apps Script URL. Vui lòng nhập URL và lưu trước.', 'error');
+    document.getElementById('script-url-input').focus();
+    return;
+  }
+
+  const row = [
+    document.getElementById('thoigian').value,
+    document.getElementById('sophieu').value.trim(),
+    document.getElementById('masp').value.trim(),
+    document.getElementById('tensp').value.trim(),
+    document.getElementById('serial').value.trim(),
+    document.getElementById('codekhoGiam').value.trim(),
+    document.getElementById('malk').value.trim(),
+    document.getElementById('tenlk').value.trim(),
+    document.getElementById('soluong').value.trim(),
+    document.getElementById('tinhtrang').value,
+    document.getElementById('malkTang').value.trim(),
+    document.getElementById('codekhoTang').value.trim(),
+    document.getElementById('sopnm').value.trim(),
+    document.getElementById('ngayTra').value.trim(),
+    document.getElementById('sopxlc').value.trim(),
+    document.getElementById('trangthaipbh').value.trim(),
+  ];
+
+  setLoading(true);
+  showStatus('Đang ghi dữ liệu vào Google Sheets...', 'info');
+
+  try {
+    const params = new URLSearchParams({
+      action: 'append',
+      sheetId: SHEET_ID,
+      sheetName: SHEET_NAME,
+      data: JSON.stringify(row)
+    });
+
+    const res = await fetch(scriptUrl + '?' + params.toString(), { method: 'GET' });
+    const text = await res.text();
+    let json;
+    try { json = JSON.parse(text); } catch(e) { throw new Error('Phản hồi không hợp lệ từ server'); }
+
+    if (json.status === 'ok') {
+      recordCount++;
+      localStorage.setItem(STORAGE_KEY_COUNT, recordCount);
+      updateCounter();
+      showStatus(`✓ Đã ghi thành công! Phiếu ${document.getElementById('sophieu').value.trim()} đã được lưu vào Google Sheets (dòng ${json.row || ''}).`, 'success');
+      resetForm(true);
+    } else {
+      throw new Error(json.message || 'Lỗi không xác định từ Apps Script');
+    }
+  } catch (e) {
+    showStatus('✗ Lỗi: ' + e.message + '. Kiểm tra lại URL Apps Script hoặc quyền truy cập.', 'error');
+    console.error(e);
+  } finally {
+    setLoading(false);
+  }
+}
+
+function resetForm(keepStatus) {
+  const fields = ['sophieu','masp','tensp','serial','codekhoGiam','malk','tenlk',
+    'soluong','malkTang','codekhoTang','sopnm','ngayTra','sopxlc','trangthaipbh'];
+
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+    const wrap = document.getElementById('f-' + id);
+    if (wrap) wrap.classList.remove('has-error', 'is-valid');
+  });
+
+  if (!keepStatus) {
+    const sb = document.getElementById('status-banner');
+    sb.className = 'status-banner';
+    sb.textContent = '';
+  }
+}
+</script>
+</body>
+</html>
