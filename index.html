@@ -718,6 +718,29 @@ function getCurrentKho() {
 
 function openViewModal() {
   const kho = getCurrentKho();
+
+  // Guard: must have kho before opening
+  if (!kho) {
+    const field   = document.getElementById('codekhoGiam');
+    const wrap    = document.getElementById('f-codekhoGiam');
+    // Highlight field
+    wrap.classList.add('has-error');
+    field.focus();
+    // Show inline error message
+    showStatus('⚠ Vui lòng nhập Code Kho Giảm để xem phiếu đã khai báo.', 'error');
+    // Scroll smoothly to the field
+    field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Shake animation
+    field.style.transition = 'transform 0.07s';
+    let t = 0;
+    const shake = setInterval(() => {
+      field.style.transform = t % 2 === 0 ? 'translateX(5px)' : 'translateX(-5px)';
+      t++;
+      if (t > 5) { clearInterval(shake); field.style.transform = ''; }
+    }, 70);
+    return;
+  }
+
   const overlay = document.getElementById('modal-overlay');
 
   // Update kho badge
