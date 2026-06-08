@@ -6,401 +6,253 @@
 <title>Phiếu Đề Xuất Giảm Linh Kiện Bảo Hành</title>
 <style>
   :root {
-    --blue-50: #E6F1FB;
-    --blue-100: #B5D4F4;
-    --blue-600: #185FA5;
-    --blue-700: #0C447C;
-    --blue-800: #042C53;
-    --gray-50: #F8F7F4;
-    --gray-100: #ECEAE3;
-    --gray-200: #D3D1C7;
-    --gray-400: #888780;
-    --gray-600: #5F5E5A;
-    --gray-900: #1A1A18;
-    --green-100: #EAF3DE;
-    --green-600: #3B6D11;
-    --red-100: #FCEBEB;
-    --red-600: #A32D2D;
-    --amber-100: #FAEEDA;
-    --amber-600: #854F0B;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
+    --blue-50: #E6F1FB; --blue-100: #B5D4F4;
+    --blue-600: #185FA5; --blue-700: #0C447C; --blue-800: #042C53;
+    --gray-50: #F8F7F4; --gray-100: #ECEAE3; --gray-200: #D3D1C7;
+    --gray-400: #888780; --gray-600: #5F5E5A; --gray-900: #1A1A18;
+    --green-100: #EAF3DE; --green-600: #3B6D11;
+    --red-100: #FCEBEB; --red-600: #A32D2D;
+    --amber-100: #FAEEDA; --amber-600: #854F0B;
+    --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, #0a1628 0%, #0d2140 40%, #0a1628 100%);
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    color: var(--gray-900);
+    min-height: 100vh; padding: 2rem 1rem; color: var(--gray-900);
   }
-
-  .page-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .page-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #fff;
-  }
-
+  .page-wrapper { max-width: 900px; margin: 0 auto; }
+  .page-header { text-align: center; margin-bottom: 2rem; color: #fff; }
   .page-header .logo-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.08);
-    border: 0.5px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 1rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 20px; padding: 6px 16px; font-size: 12px;
+    color: rgba(255,255,255,0.7); margin-bottom: 1rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
   }
-
-  .page-header h1 {
-    font-size: 26px;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.3;
-  }
-
-  .page-header p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    margin-top: 6px;
-  }
-
+  .page-header h1 { font-size: 26px; font-weight: 600; color: #fff; line-height: 1.3; }
+  .page-header p { font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 6px; }
   .form-card {
-    background: #fff;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
+    background: #fff; border-radius: var(--radius-xl); overflow: hidden;
     box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.2);
   }
-
-  .form-body {
-    padding: 2rem 2rem 1.5rem;
-  }
-
-  .section {
-    margin-bottom: 1.25rem;
-    border: 0.5px solid var(--gray-100);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
+  .form-body { padding: 2rem 2rem 1.5rem; }
+  .section { margin-bottom: 1.25rem; border: 0.5px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; }
   .section-header {
-    background: var(--gray-50);
-    border-bottom: 0.5px solid var(--gray-100);
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    background: var(--gray-50); border-bottom: 0.5px solid var(--gray-100);
+    padding: 10px 16px; display: flex; align-items: center; gap: 8px;
   }
-
   .section-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: #fff;
-    flex-shrink: 0;
+    width: 24px; height: 24px; border-radius: 6px; display: flex;
+    align-items: center; justify-content: center; font-size: 12px;
+    font-weight: 600; color: #fff; flex-shrink: 0;
   }
-
   .section-icon.blue { background: var(--blue-600); }
   .section-icon.teal { background: #0F6E56; }
   .section-icon.coral { background: #993C1D; }
   .section-icon.purple { background: #534AB7; }
   .section-icon.amber { background: var(--amber-600); }
-
-  .section-title {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--gray-600);
-  }
-
-  .section-body {
-    padding: 16px;
-    display: grid;
-    gap: 12px;
-  }
-
+  .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray-600); }
+  .section-body { padding: 16px; display: grid; gap: 12px; }
   .cols-3 { grid-template-columns: 1fr 1fr 1fr; }
   .cols-2 { grid-template-columns: 1fr 1fr; }
   .cols-4 { grid-template-columns: 1fr 1fr 1fr 90px; }
   .cols-1 { grid-template-columns: 1fr; }
-
   .field { display: flex; flex-direction: column; gap: 4px; }
-
-  .field label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gray-600);
-    display: flex;
-    align-items: center;
-    gap: 3px;
-  }
-
+  .field label { font-size: 12px; font-weight: 600; color: var(--gray-600); display: flex; align-items: center; gap: 3px; }
   .field label .req { color: #E24B4A; font-size: 13px; }
-
   .field input, .field select, .field textarea {
-    height: 38px;
-    padding: 0 11px;
-    font-size: 14px;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    background: #fff;
-    color: var(--gray-900);
-    font-family: inherit;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    outline: none;
+    height: 38px; padding: 0 11px; font-size: 14px;
+    border: 1px solid var(--gray-200); border-radius: var(--radius-md);
+    background: #fff; color: var(--gray-900); font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s; outline: none;
   }
-
-  .field textarea {
-    height: auto;
-    padding: 8px 11px;
-    resize: none;
-  }
-
+  .field textarea { height: auto; padding: 8px 11px; resize: none; }
   .field input:focus, .field select:focus, .field textarea:focus {
-    border-color: var(--blue-600);
-    box-shadow: 0 0 0 3px rgba(24,95,165,0.12);
+    border-color: var(--blue-600); box-shadow: 0 0 0 3px rgba(24,95,165,0.12);
   }
-
-  .field input.readonly-field {
-    background: var(--gray-50);
-    color: var(--gray-600);
-    border-color: var(--gray-100);
-    cursor: default;
-  }
-
-  .field input.auto-field {
-    background: #EAF3DE;
-    color: var(--green-600);
-    border-color: #C0DD97;
-    font-size: 13px;
-    cursor: default;
-  }
-
-  .field .hint {
-    font-size: 11px;
-    color: var(--gray-400);
-    line-height: 1.4;
-  }
-
-  .field .err-msg {
-    font-size: 11px;
-    color: var(--red-600);
-    display: none;
-    line-height: 1.4;
-  }
-
-  .field.has-error input,
-  .field.has-error textarea {
-    border-color: #E24B4A;
-    box-shadow: 0 0 0 3px rgba(226,75,74,0.1);
-  }
-
+  .field input.readonly-field { background: var(--gray-50); color: var(--gray-600); border-color: var(--gray-100); cursor: default; }
+  .field input.auto-field { background: #EAF3DE; color: var(--green-600); border-color: #C0DD97; font-size: 13px; cursor: default; }
+  .field .hint { font-size: 11px; color: var(--gray-400); line-height: 1.4; }
+  .field .err-msg { font-size: 11px; color: var(--red-600); display: none; line-height: 1.4; }
+  .field.has-error input, .field.has-error textarea { border-color: #E24B4A; box-shadow: 0 0 0 3px rgba(226,75,74,0.1); }
   .field.has-error .err-msg { display: block; }
-
-  .field.is-valid input,
-  .field.is-valid textarea {
-    border-color: #639922;
-  }
-
+  .field.is-valid input, .field.is-valid textarea { border-color: #639922; }
   .form-footer {
-    background: var(--gray-50);
-    border-top: 0.5px solid var(--gray-100);
-    padding: 1.25rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    background: var(--gray-50); border-top: 0.5px solid var(--gray-100);
+    padding: 1.25rem 2rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   }
-
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 24px;
-    height: 44px;
-    background: var(--blue-600);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background 0.15s, transform 0.1s;
-    letter-spacing: 0.01em;
+    display: inline-flex; align-items: center; gap: 8px; padding: 0 24px; height: 44px;
+    background: var(--blue-600); color: #fff; border: none; border-radius: var(--radius-md);
+    font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+    transition: background 0.15s, transform 0.1s; letter-spacing: 0.01em;
   }
-
   .btn-primary:hover { background: var(--blue-700); }
   .btn-primary:active { transform: scale(0.98); }
-  .btn-primary:disabled {
-    background: var(--gray-200);
-    color: var(--gray-400);
-    cursor: not-allowed;
-    transform: none;
-  }
-
+  .btn-primary:disabled { background: var(--gray-200); color: var(--gray-400); cursor: not-allowed; transform: none; }
   .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0 18px;
-    height: 44px;
-    background: transparent;
-    color: var(--gray-600);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background 0.15s, border-color 0.15s;
+    display: inline-flex; align-items: center; gap: 6px; padding: 0 18px; height: 44px;
+    background: transparent; color: var(--gray-600); border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md); font-size: 14px; font-weight: 500; cursor: pointer;
+    font-family: inherit; transition: background 0.15s, border-color 0.15s;
   }
-
-  .btn-secondary:hover {
-    background: var(--gray-50);
-    border-color: var(--gray-400);
+  .btn-secondary:hover { background: var(--gray-50); border-color: var(--gray-400); }
+  /* VIEW button */
+  .btn-view {
+    display: inline-flex; align-items: center; gap: 7px; padding: 0 20px; height: 44px;
+    background: #1a1a18; color: #fff; border: none; border-radius: var(--radius-md);
+    font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+    transition: background 0.15s, transform 0.1s;
   }
-
+  .btn-view:hover { background: #333; }
+  .btn-view:active { transform: scale(0.98); }
   .status-banner {
-    flex: 1;
-    min-width: 200px;
-    padding: 10px 14px;
-    border-radius: var(--radius-md);
-    font-size: 13px;
-    font-weight: 500;
-    display: none;
-    align-items: center;
-    gap: 8px;
+    flex: 1; min-width: 200px; padding: 10px 14px; border-radius: var(--radius-md);
+    font-size: 13px; font-weight: 500; display: none; align-items: center; gap: 8px;
   }
-
-  .status-banner.success {
-    display: flex;
-    background: var(--green-100);
-    color: var(--green-600);
-    border: 1px solid #C0DD97;
-  }
-
-  .status-banner.error {
-    display: flex;
-    background: var(--red-100);
-    color: var(--red-600);
-    border: 1px solid #F7C1C1;
-  }
-
-  .status-banner.info {
-    display: flex;
-    background: var(--blue-50);
-    color: var(--blue-600);
-    border: 1px solid var(--blue-100);
-  }
-
-  .spinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(255,255,255,0.35);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    display: none;
-  }
-
+  .status-banner.success { display: flex; background: var(--green-100); color: var(--green-600); border: 1px solid #C0DD97; }
+  .status-banner.error { display: flex; background: var(--red-100); color: var(--red-600); border: 1px solid #F7C1C1; }
+  .status-banner.info { display: flex; background: var(--blue-50); color: var(--blue-600); border: 1px solid var(--blue-100); }
+  .spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
   /* Config bar */
   .config-bar {
-    background: #fff;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    padding: 10px 14px;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-md);
+    padding: 10px 14px; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   }
-
-  .config-bar label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gray-600);
-    white-space: nowrap;
-  }
-
+  .config-bar label { font-size: 12px; font-weight: 600; color: var(--gray-600); white-space: nowrap; }
   .config-bar input {
-    flex: 1;
-    min-width: 200px;
-    height: 34px;
-    padding: 0 10px;
-    font-size: 13px;
-    border: 1px solid var(--gray-200);
-    border-radius: 6px;
-    outline: none;
-    color: var(--gray-900);
-    font-family: monospace;
+    flex: 1; min-width: 200px; height: 34px; padding: 0 10px; font-size: 13px;
+    border: 1px solid var(--gray-200); border-radius: 6px; outline: none;
+    color: var(--gray-900); font-family: monospace;
   }
-
-  .config-bar input:focus {
-    border-color: var(--blue-600);
-    box-shadow: 0 0 0 2px rgba(24,95,165,0.1);
-  }
-
+  .config-bar input:focus { border-color: var(--blue-600); box-shadow: 0 0 0 2px rgba(24,95,165,0.1); }
   .config-bar .save-btn {
-    padding: 0 14px;
-    height: 34px;
-    background: var(--blue-600);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
+    padding: 0 14px; height: 34px; background: var(--blue-600); color: #fff;
+    border: none; border-radius: 6px; font-size: 13px; font-weight: 500;
+    cursor: pointer; font-family: inherit; white-space: nowrap;
   }
-
   .config-bar .save-btn:hover { background: var(--blue-700); }
+  .script-url-badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+  .script-url-badge.connected { background: var(--green-100); color: var(--green-600); }
+  .record-counter { margin-left: auto; font-size: 12px; color: var(--gray-400); white-space: nowrap; }
 
-  .script-url-badge {
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-weight: 500;
+  /* ===== MODAL ===== */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(10,22,40,0.75);
+    backdrop-filter: blur(4px); z-index: 1000;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 2rem 1rem; overflow-y: auto;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s;
   }
-
-  .script-url-badge.connected {
-    background: var(--green-100);
-    color: var(--green-600);
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: #fff; border-radius: var(--radius-xl); width: 100%; max-width: 860px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    transform: translateY(20px) scale(0.98); transition: transform 0.25s;
+    flex-shrink: 0;
   }
-
-  .script-url-badge.not-connected {
-    background: var(--amber-100);
-    color: var(--amber-600);
+  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+  .modal-header {
+    padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--gray-100);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
   }
-
-  /* Record counter */
-  .record-counter {
-    margin-left: auto;
-    font-size: 12px;
-    color: var(--gray-400);
+  .modal-header-left { display: flex; align-items: center; gap: 10px; }
+  .modal-icon {
+    width: 36px; height: 36px; background: #1a1a18; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .modal-title { font-size: 16px; font-weight: 600; color: var(--gray-900); }
+  .modal-subtitle { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+  .modal-close {
+    width: 32px; height: 32px; border: none; background: var(--gray-100);
+    border-radius: 8px; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 18px; color: var(--gray-600); flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .modal-close:hover { background: var(--gray-200); }
+  /* filter bar inside modal */
+  .modal-filter {
+    padding: 1rem 1.5rem; background: var(--gray-50); border-bottom: 1px solid var(--gray-100);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .kho-badge {
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+    background: #1a1a18; color: #fff; border-radius: 20px; font-size: 13px; font-weight: 600;
+  }
+  .kho-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #5CDE81; }
+  .modal-filter-note { font-size: 12px; color: var(--gray-400); }
+  .modal-search {
+    margin-left: auto; display: flex; align-items: center; gap: 6px;
+  }
+  .modal-search input {
+    height: 32px; padding: 0 10px; font-size: 13px; border: 1px solid var(--gray-200);
+    border-radius: 6px; outline: none; width: 160px; font-family: inherit;
+  }
+  .modal-search input:focus { border-color: var(--blue-600); }
+  /* table */
+  .modal-body { padding: 1.25rem 1.5rem; }
+  .tbl-wrap { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--gray-100); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
+  thead tr { background: var(--gray-50); }
+  thead th {
+    padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400);
+    border-bottom: 1px solid var(--gray-100); white-space: nowrap;
+  }
+  tbody tr { border-bottom: 0.5px solid var(--gray-100); transition: background 0.1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--blue-50); }
+  tbody td { padding: 10px 12px; color: var(--gray-900); vertical-align: top; line-height: 1.4; }
+  tbody td.mono { font-family: 'Courier New', monospace; font-size: 12px; }
+  td .pill {
+    display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px;
+    font-weight: 600; background: var(--blue-50); color: var(--blue-600);
     white-space: nowrap;
+  }
+  td .note-cell {
+    background: var(--amber-100); color: var(--amber-600);
+    border-radius: 6px; padding: 4px 8px; font-size: 12px; font-style: italic;
+    min-width: 80px; display: block;
+  }
+  td .note-cell.empty { background: var(--gray-100); color: var(--gray-400); font-style: normal; }
+  .no-data {
+    text-align: center; padding: 3rem 1rem; color: var(--gray-400);
+  }
+  .no-data .icon { font-size: 36px; margin-bottom: 8px; }
+  .no-data p { font-size: 14px; }
+  .modal-footer {
+    padding: 1rem 1.5rem; border-top: 1px solid var(--gray-100);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--gray-50); border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  }
+  .modal-footer .stats { font-size: 13px; color: var(--gray-400); }
+  .modal-footer .stats strong { color: var(--gray-900); }
+  .btn-refresh {
+    display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; height: 34px;
+    background: var(--blue-600); color: #fff; border: none; border-radius: 6px;
+    font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit;
+    transition: background 0.15s;
+  }
+  .btn-refresh:hover { background: var(--blue-700); }
+  .btn-refresh:disabled { background: var(--gray-200); color: var(--gray-400); cursor: not-allowed; }
+  /* loading skeleton */
+  .skeleton-row td { padding: 12px; }
+  .skel {
+    height: 14px; border-radius: 6px;
+    background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-50) 50%, var(--gray-100) 75%);
+    background-size: 200% 100%; animation: shimmer 1.2s infinite;
+  }
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* Apps Script code block for copy */
+  .apps-script-hint {
+    margin-top: 1rem; padding: 14px 16px;
+    background: #0d1117; border-radius: var(--radius-md);
+    font-family: 'Courier New', monospace; font-size: 12px;
+    color: #c9d1d9; line-height: 1.7; white-space: pre-wrap; word-break: break-all;
+    display: none;
   }
 
   @media (max-width: 680px) {
@@ -408,6 +260,9 @@
     .form-body { padding: 1.25rem 1rem; }
     .form-footer { padding: 1rem; }
     .page-header h1 { font-size: 20px; }
+    .modal-filter { flex-direction: column; align-items: flex-start; }
+    .modal-search { margin-left: 0; width: 100%; }
+    .modal-search input { width: 100%; }
   }
 </style>
 </head>
@@ -429,14 +284,13 @@
       <!-- Config bar -->
       <div class="config-bar">
         <label>🔗 Apps Script URL:</label>
-        <input type="text" id="script-url-input" placeholder="https://script.google.com/macros/s/..." spellcheck="false">
+        <input type="text" id="script-url-input" spellcheck="false">
         <button class="save-btn" onclick="saveScriptUrl()">Lưu URL</button>
-        <span class="script-url-badge not-connected" id="url-badge">Chưa cấu hình</span>
+        <span class="script-url-badge connected" id="url-badge">✓ Đã kết nối</span>
         <span class="record-counter" id="record-counter">Đã ghi: <strong>0</strong> phiếu</span>
       </div>
 
-
-      <!-- SECTION 1: Thông tin phiếu -->
+      <!-- SECTION 1 -->
       <div class="section">
         <div class="section-header">
           <div class="section-icon blue">1</div>
@@ -463,7 +317,7 @@
         </div>
       </div>
 
-      <!-- SECTION 2: Thông tin sản phẩm -->
+      <!-- SECTION 2 -->
       <div class="section">
         <div class="section-header">
           <div class="section-icon teal">2</div>
@@ -491,7 +345,7 @@
         </div>
       </div>
 
-      <!-- SECTION 3: Linh kiện giảm -->
+      <!-- SECTION 3 -->
       <div class="section">
         <div class="section-header">
           <div class="section-icon coral">3</div>
@@ -500,7 +354,7 @@
         <div class="section-body cols-4">
           <div class="field" id="f-codekhoGiam">
             <label>Code kho giảm <span class="req">*</span></label>
-            <input type="text" id="codekhoGiam" placeholder="MXXX" maxlength="4" autocomplete="off" style="text-transform:uppercase">
+            <input type="text" id="codekhoGiam" placeholder="AXXX" maxlength="4" autocomplete="off" style="text-transform:uppercase">
             <span class="hint">4 ký tự, bắt đầu bằng chữ cái viết hoa</span>
             <span class="err-msg">Phải gồm đúng 4 ký tự, ký tự đầu là chữ hoa</span>
           </div>
@@ -531,7 +385,7 @@
         </div>
       </div>
 
-      <!-- SECTION 4: LK tăng trước đó -->
+      <!-- SECTION 4 -->
       <div class="section">
         <div class="section-header">
           <div class="section-icon purple">4</div>
@@ -546,7 +400,7 @@
           </div>
           <div class="field" id="f-codekhoTang">
             <label>Code kho đã tăng trước đó <span class="req">*</span></label>
-            <input type="text" id="codekhoTang" placeholder="MXXX" maxlength="4" autocomplete="off" style="text-transform:uppercase">
+            <input type="text" id="codekhoTang" placeholder="AXXX" maxlength="4" autocomplete="off" style="text-transform:uppercase">
             <span class="hint">4 ký tự, bắt đầu bằng chữ cái viết hoa</span>
             <span class="err-msg">Phải gồm đúng 4 ký tự, ký tự đầu là chữ hoa</span>
           </div>
@@ -559,7 +413,7 @@
         </div>
       </div>
 
-      <!-- SECTION 5: Trả kho bán -->
+      <!-- SECTION 5 -->
       <div class="section">
         <div class="section-header">
           <div class="section-icon amber">5</div>
@@ -593,6 +447,10 @@
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7a6 6 0 1 0 6-6 6 6 0 0 0-4.24 1.76L1 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         Làm mới
       </button>
+      <button class="btn-view" onclick="openViewModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="#fff" stroke-width="1.5"/><path d="M1.5 8C3 4.5 5.5 2.5 8 2.5S13 4.5 14.5 8C13 11.5 10.5 13.5 8 13.5S3 11.5 1.5 8z" stroke="#fff" stroke-width="1.5"/></svg>
+        Xem Phiếu đã khai báo
+      </button>
       <div class="status-banner" id="status-banner"></div>
     </div>
   </div><!-- /form-card -->
@@ -602,96 +460,161 @@
   </p>
 </div><!-- /page-wrapper -->
 
-<script>
-const SHEET_ID = '1BVGRfiTVzMSzmyNmBI12Yz0fsEuEATv7vwi8v53YjgU';
-const SHEET_NAME = 'Sheet1';
-const STORAGE_KEY_URL = 'apps_script_url';
-const STORAGE_KEY_COUNT = 'record_count';
+<!-- ===== MODAL XEM PHIẾU ===== -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="3.5" stroke="#fff" stroke-width="1.6"/>
+            <path d="M1.5 9C3.5 5 6 3 9 3s5.5 2 7.5 6c-2 4-4.5 6-7.5 6S3.5 13 1.5 9z" stroke="#fff" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="modal-title">Xem Phiếu Đã Khai Báo</div>
+          <div class="modal-subtitle" id="modal-subtitle">Dữ liệu được lọc theo Code Kho Giảm hiện tại</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeViewModal()">×</button>
+    </div>
 
+    <div class="modal-filter">
+      <div class="kho-badge">
+        <div class="dot"></div>
+        <span>Code Kho: </span><span id="modal-kho-display" style="letter-spacing:0.05em">—</span>
+      </div>
+      <span class="modal-filter-note">Chỉ hiển thị phiếu thuộc kho đang khai báo</span>
+      <div class="modal-search">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="color:var(--gray-400)"><circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.4"/><path d="M9.5 9.5L13 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <input type="text" id="modal-search-input" placeholder="Tìm số phiếu / mã LK..." oninput="filterTable()">
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="tbl-wrap">
+        <table id="modal-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Số Phiếu BH (BHNB)</th>
+              <th>Code Kho Giảm</th>
+              <th>Mã LK Giảm</th>
+              <th>Tên LK Giảm</th>
+              <th>Số Lượng</th>
+              <th>Số PNM* Đã Tăng</th>
+              <th>Admin Note</th>
+            </tr>
+          </thead>
+          <tbody id="modal-tbody">
+            <tr><td colspan="8"><div class="no-data"><div class="icon">📋</div><p>Nhấn "Tải dữ liệu" để xem phiếu</p></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="stats" id="modal-stats">Sẵn sàng tải dữ liệu</div>
+      <button class="btn-refresh" id="btn-refresh" onclick="loadSheetData()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7a6 6 0 1 0 6-6 6 6 0 0 0-4.24 1.76L1 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Tải / Làm mới dữ liệu
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG
+============================================================ */
+const SHEET_ID   = '1BVGRfiTVzMSzmyNmBI12Yz0fsEuEATv7vwi8v53YjgU';
+const SHEET_NAME = 'Sheet1';
+const STORAGE_KEY_URL   = 'apps_script_url';
+const STORAGE_KEY_COUNT = 'record_count';
 const DEFAULT_URL = 'https://script.google.com/macros/s/AKfycbx9IpEjijwnRctTOG2MM5VXOpOf7xFZ5nYeFa0qqg8Xp210ppxLp9OUrqNrupjE5lY/exec';
 
-// Load saved URL (fallback to default)
-let scriptUrl = localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_URL;
-let recordCount = parseInt(localStorage.getItem(STORAGE_KEY_COUNT) || '0');
+// Column indices in sheet (0-based):
+// A=0  Thời gian, B=1 Số Phiếu BH, C=2 Mã SP, D=3 Tên SP, E=4 Serial,
+// F=5  Code Kho Giảm, G=6 Mã LK Giảm, H=7 Tên LK Giảm, I=8 Số Lượng,
+// J=9  Tình Trạng, K=10 Mã LK Tăng, L=11 Code Kho Tăng, M=12 Số PNM,
+// N=13 Ngày Trả, O=14 Số PXLC, P=15 Trạng Thái PBH, Q=16 ADMIN NOTE
+const COL = { sophieu:1, codeKhoGiam:5, maLKGiam:6, tenLKGiam:7, soLuong:8, soPNM:12, adminNote:16 };
 
+let scriptUrl  = localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_URL;
+let recordCount = parseInt(localStorage.getItem(STORAGE_KEY_COUNT) || '0');
+let allRows    = []; // raw data from sheet
+let filteredRows = [];
+
+/* init */
 document.getElementById('script-url-input').value = scriptUrl;
-updateUrlBadge();
 updateCounter();
 
 function saveScriptUrl() {
   const val = document.getElementById('script-url-input').value.trim();
-  if (!val) { showStatus('Vui lòng nhập URL Apps Script trước.', 'error'); return; }
-  if (!val.startsWith('https://script.google.com/')) {
-    showStatus('URL không hợp lệ. Phải bắt đầu bằng https://script.google.com/', 'error'); return;
+  if (!val || !val.startsWith('https://script.google.com/')) {
+    showStatus('URL không hợp lệ.', 'error'); return;
   }
   scriptUrl = val;
   localStorage.setItem(STORAGE_KEY_URL, scriptUrl);
-  updateUrlBadge();
-  showStatus('✓ Đã lưu URL Apps Script. Sẵn sàng ghi dữ liệu!', 'success');
-}
-
-function updateUrlBadge() {
-  const badge = document.getElementById('url-badge');
-  badge.textContent = '✓ Đã kết nối';
-  badge.className = 'script-url-badge connected';
+  showStatus('✓ Đã lưu URL Apps Script!', 'success');
 }
 
 function updateCounter() {
   document.getElementById('record-counter').innerHTML = `Đã ghi: <strong>${recordCount}</strong> phiếu`;
 }
 
-// Real-time clock
-function pad2(n) { return String(n).padStart(2, '0'); }
+/* ============================================================
+   REAL-TIME CLOCK
+============================================================ */
+function pad2(n) { return String(n).padStart(2,'0'); }
 function nowStr() {
   const d = new Date();
-  return pad2(d.getDate()) + '/' + pad2(d.getMonth()+1) + '/' + d.getFullYear()
-    + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes()) + ':' + pad2(d.getSeconds());
+  return pad2(d.getDate())+'/'+pad2(d.getMonth()+1)+'/'+d.getFullYear()
+        +' '+pad2(d.getHours())+':'+pad2(d.getMinutes())+':'+pad2(d.getSeconds());
 }
 document.getElementById('thoigian').value = nowStr();
 setInterval(() => { document.getElementById('thoigian').value = nowStr(); }, 1000);
 
-// Validation rules
+/* ============================================================
+   VALIDATION
+============================================================ */
 const rules = {
   sophieu:      v => /^PBH\d{6}$/.test(v),
   trangthaipbh: v => v.trim().length >= 8,
-  masp:         v => /^\d{6}$/.test(v) && v[0] === '7',
+  masp:         v => /^\d{6}$/.test(v) && v[0]==='7',
   tensp:        v => v.trim().length >= 10,
   serial:       v => v.trim().length >= 10,
-  codekhoGiam:  v => v.length === 4 && /^[A-Z]/.test(v),
-  malk:         v => /^\d{6}$/.test(v) && v[0] === '7',
+  codekhoGiam:  v => v.length===4 && /^[A-Z]/.test(v),
+  malk:         v => /^\d{6}$/.test(v) && v[0]==='7',
   tenlk:        v => v.trim().length >= 10,
-  soluong:      v => v !== '' && !isNaN(Number(v)) && Number(v) > 0,
-  malkTang:     v => /^\d{6}$/.test(v) && v[0] === '7',
-  codekhoTang:  v => v.length === 4 && /^[A-Z]/.test(v),
-  sopnm:        v => v.trim().length >= 10 && v.trim().toUpperCase().startsWith('PNM'),
+  soluong:      v => v!=='' && !isNaN(Number(v)) && Number(v)>0,
+  malkTang:     v => /^\d{6}$/.test(v) && v[0]==='7',
+  codekhoTang:  v => v.length===4 && /^[A-Z]/.test(v),
+  sopnm:        v => v.trim().length>=10 && v.trim().toUpperCase().startsWith('PNM'),
   ngayTra:      v => {
     if (!/^\d{2}\/\d{2}\/\d{4}$/.test(v)) return false;
-    const [d, m, y] = v.split('/').map(Number);
-    const dt = new Date(y, m-1, d);
-    return dt.getFullYear() === y && dt.getMonth() === m-1 && dt.getDate() === d;
+    const [d,m,y] = v.split('/').map(Number);
+    const dt = new Date(y,m-1,d);
+    return dt.getFullYear()===y && dt.getMonth()===m-1 && dt.getDate()===d;
   },
-  sopxlc:       v => v.trim().length >= 10 && v.trim().toUpperCase().startsWith('PXLC'),
+  sopxlc: v => v.trim().length>=10 && v.trim().toUpperCase().startsWith('PXLC'),
 };
 
-// Auto uppercase for code fields
-['codekhoGiam', 'codekhoTang'].forEach(id => {
+['codekhoGiam','codekhoTang'].forEach(id => {
   document.getElementById(id).addEventListener('input', function() {
     const pos = this.selectionStart;
     this.value = this.value.toUpperCase();
-    this.setSelectionRange(pos, pos);
+    this.setSelectionRange(pos,pos);
   });
 });
 
 function validate(id) {
-  const el = document.getElementById(id);
-  const wrap = document.getElementById('f-' + id);
-  if (!el || !wrap || !rules[id]) return true;
+  const el   = document.getElementById(id);
+  const wrap = document.getElementById('f-'+id);
+  if (!el||!wrap||!rules[id]) return true;
   const val = el.value.trim();
-  const ok = rules[id](val);
-  if (val === '') {
-    wrap.classList.remove('has-error', 'is-valid');
-    return false;
-  }
+  const ok  = rules[id](val);
+  if (val==='') { wrap.classList.remove('has-error','is-valid'); return false; }
   wrap.classList.toggle('has-error', !ok);
   wrap.classList.toggle('is-valid', ok);
   return ok;
@@ -702,41 +625,38 @@ Object.keys(rules).forEach(id => {
   if (!el) return;
   el.addEventListener('blur', () => validate(id));
   el.addEventListener('input', () => {
-    const wrap = document.getElementById('f-' + id);
+    const wrap = document.getElementById('f-'+id);
     if (wrap && wrap.classList.contains('has-error')) validate(id);
   });
 });
 
+/* ============================================================
+   STATUS & LOADING
+============================================================ */
 function showStatus(msg, type) {
   const el = document.getElementById('status-banner');
   el.textContent = msg;
-  el.className = 'status-banner ' + type;
+  el.className = 'status-banner '+type;
 }
 
 function setLoading(on) {
-  document.getElementById('spinner').style.display = on ? 'inline-block' : 'none';
+  document.getElementById('spinner').style.display   = on ? 'inline-block' : 'none';
   document.getElementById('send-icon').style.display = on ? 'none' : 'block';
   document.getElementById('btn-submit').disabled = on;
 }
 
+/* ============================================================
+   SUBMIT
+============================================================ */
 async function submitForm() {
   let allOk = true;
   Object.keys(rules).forEach(id => { if (!validate(id)) allOk = false; });
-
   if (!allOk) {
     showStatus('⚠ Vui lòng kiểm tra lại các trường còn thiếu hoặc sai định dạng.', 'error');
-    // Scroll to first error
     const firstErr = document.querySelector('.field.has-error');
-    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (firstErr) firstErr.scrollIntoView({ behavior:'smooth', block:'center' });
     return;
   }
-
-  if (!scriptUrl) {
-    showStatus('⚠ Chưa cấu hình Apps Script URL. Vui lòng nhập URL và lưu trước.', 'error');
-    document.getElementById('script-url-input').focus();
-    return;
-  }
-
   const row = [
     document.getElementById('thoigian').value,
     document.getElementById('sophieu').value.trim(),
@@ -755,57 +675,236 @@ async function submitForm() {
     document.getElementById('sopxlc').value.trim(),
     document.getElementById('trangthaipbh').value.trim(),
   ];
-
   setLoading(true);
   showStatus('Đang ghi dữ liệu vào Google Sheets...', 'info');
-
   try {
-    const params = new URLSearchParams({
-      action: 'append',
-      sheetId: SHEET_ID,
-      sheetName: SHEET_NAME,
-      data: JSON.stringify(row)
-    });
-
-    const res = await fetch(scriptUrl + '?' + params.toString(), { method: 'GET' });
+    const params = new URLSearchParams({ action:'append', sheetId:SHEET_ID, sheetName:SHEET_NAME, data:JSON.stringify(row) });
+    const res  = await fetch(scriptUrl+'?'+params.toString());
     const text = await res.text();
     let json;
     try { json = JSON.parse(text); } catch(e) { throw new Error('Phản hồi không hợp lệ từ server'); }
-
-    if (json.status === 'ok') {
+    if (json.status==='ok') {
       recordCount++;
       localStorage.setItem(STORAGE_KEY_COUNT, recordCount);
       updateCounter();
-      showStatus(`✓ Đã ghi thành công! Phiếu ${document.getElementById('sophieu').value.trim()} đã được lưu vào Google Sheets (dòng ${json.row || ''}).`, 'success');
+      showStatus(`✓ Đã ghi thành công! Phiếu ${row[1]} — dòng ${json.row||''} trong Sheets.`, 'success');
       resetForm(true);
-    } else {
-      throw new Error(json.message || 'Lỗi không xác định từ Apps Script');
-    }
-  } catch (e) {
-    showStatus('✗ Lỗi: ' + e.message + '. Kiểm tra lại URL Apps Script hoặc quyền truy cập.', 'error');
-    console.error(e);
-  } finally {
-    setLoading(false);
-  }
+    } else { throw new Error(json.message||'Lỗi không xác định'); }
+  } catch(e) {
+    showStatus('✗ Lỗi: '+e.message, 'error');
+  } finally { setLoading(false); }
 }
 
 function resetForm(keepStatus) {
-  const fields = ['sophieu','masp','tensp','serial','codekhoGiam','malk','tenlk',
-    'soluong','malkTang','codekhoTang','sopnm','ngayTra','sopxlc','trangthaipbh'];
-
-  fields.forEach(id => {
+  ['sophieu','masp','tensp','serial','codekhoGiam','malk','tenlk',
+   'soluong','malkTang','codekhoTang','sopnm','ngayTra','sopxlc','trangthaipbh'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
-    const wrap = document.getElementById('f-' + id);
-    if (wrap) wrap.classList.remove('has-error', 'is-valid');
+    const wrap = document.getElementById('f-'+id);
+    if (wrap) wrap.classList.remove('has-error','is-valid');
   });
-
   if (!keepStatus) {
     const sb = document.getElementById('status-banner');
-    sb.className = 'status-banner';
-    sb.textContent = '';
+    sb.className = 'status-banner'; sb.textContent = '';
   }
 }
+
+/* ============================================================
+   MODAL — XEM PHIẾU
+============================================================ */
+function getCurrentKho() {
+  return document.getElementById('codekhoGiam').value.trim().toUpperCase();
+}
+
+function openViewModal() {
+  const kho = getCurrentKho();
+  const overlay = document.getElementById('modal-overlay');
+
+  // Update kho badge
+  const khoDisplay = document.getElementById('modal-kho-display');
+  if (kho) {
+    khoDisplay.textContent = kho;
+    document.getElementById('modal-subtitle').textContent =
+      `Chỉ hiển thị phiếu có Code Kho Giảm = "${kho}"`;
+  } else {
+    khoDisplay.textContent = '(Chưa nhập)';
+    document.getElementById('modal-subtitle').textContent =
+      'Vui lòng nhập Code Kho Giảm ở form để lọc dữ liệu';
+  }
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Auto load
+  loadSheetData();
+}
+
+function closeViewModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeViewModal();
+}
+
+// Escape key
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeViewModal(); });
+
+/* ---- fetch data from Apps Script ---- */
+async function loadSheetData() {
+  const btn = document.getElementById('btn-refresh');
+  const tbody = document.getElementById('modal-tbody');
+  btn.disabled = true;
+  document.getElementById('modal-stats').textContent = 'Đang tải dữ liệu...';
+  setSkeletonRows(tbody, 5);
+
+  try {
+    const params = new URLSearchParams({ action:'read', sheetId:SHEET_ID, sheetName:SHEET_NAME });
+    const res  = await fetch(scriptUrl+'?'+params.toString());
+    const text = await res.text();
+    let json;
+    try { json = JSON.parse(text); } catch(e) { throw new Error('Phản hồi không hợp lệ — kiểm tra Apps Script'); }
+    if (json.status !== 'ok') throw new Error(json.message||'Lỗi đọc dữ liệu');
+
+    allRows = json.rows || [];
+    renderTable();
+  } catch(e) {
+    tbody.innerHTML = `<tr><td colspan="8"><div class="no-data">
+      <div class="icon">⚠️</div>
+      <p style="color:var(--red-600)">${e.message}</p>
+      <p style="font-size:12px;margin-top:6px;color:var(--gray-400)">
+        Đảm bảo Apps Script đã được cập nhật hỗ trợ action=read
+      </p></div></td></tr>`;
+    document.getElementById('modal-stats').textContent = 'Lỗi tải dữ liệu';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function renderTable() {
+  const kho    = getCurrentKho();
+  const search = document.getElementById('modal-search-input').value.trim().toLowerCase();
+  const tbody  = document.getElementById('modal-tbody');
+
+  // Filter: only rows matching current kho
+  filteredRows = allRows.filter(row => {
+    const rowKho = (row[COL.codeKhoGiam]||'').toString().trim().toUpperCase();
+    if (kho && rowKho !== kho) return false;
+    if (search) {
+      const haystack = [
+        row[COL.sophieu], row[COL.maLKGiam], row[COL.tenLKGiam], row[COL.soPNM]
+      ].join(' ').toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    return true;
+  });
+
+  if (filteredRows.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="8"><div class="no-data">
+      <div class="icon">🔍</div>
+      <p>${kho ? `Không có phiếu nào thuộc kho <strong>${kho}</strong>${search?' với từ khóa "'+search+'"':''}` : 'Chưa nhập Code Kho Giảm ở form — không thể lọc'}</p>
+    </div></td></tr>`;
+    document.getElementById('modal-stats').textContent = '0 phiếu';
+    return;
+  }
+
+  tbody.innerHTML = filteredRows.map((row, i) => {
+    const sophieu   = esc(row[COL.sophieu]   || '—');
+    const codeKho   = esc(row[COL.codeKhoGiam]|| '—');
+    const maLK      = esc(row[COL.maLKGiam]  || '—');
+    const tenLK     = esc(row[COL.tenLKGiam] || '—');
+    const soLuong   = esc(row[COL.soLuong]   || '—');
+    const soPNM     = esc(row[COL.soPNM]     || '—');
+    const adminNote = (row[COL.adminNote]||'').toString().trim();
+    const noteHtml  = adminNote
+      ? `<span class="note-cell">${esc(adminNote)}</span>`
+      : `<span class="note-cell empty">—</span>`;
+
+    return `<tr>
+      <td style="color:var(--gray-400);font-size:12px">${i+1}</td>
+      <td><span class="pill">${sophieu}</span></td>
+      <td class="mono" style="font-weight:700;color:var(--blue-600)">${codeKho}</td>
+      <td class="mono">${maLK}</td>
+      <td style="max-width:180px">${tenLK}</td>
+      <td style="text-align:center;font-weight:600">${soLuong}</td>
+      <td class="mono" style="font-size:12px">${soPNM}</td>
+      <td>${noteHtml}</td>
+    </tr>`;
+  }).join('');
+
+  const total = allRows.filter(r => {
+    const rowKho = (r[COL.codeKhoGiam]||'').toString().trim().toUpperCase();
+    return kho ? rowKho === kho : true;
+  }).length;
+
+  document.getElementById('modal-stats').innerHTML =
+    `Hiển thị <strong>${filteredRows.length}</strong> / <strong>${total}</strong> phiếu kho <strong>${kho||'—'}</strong> ${search?`· từ khóa "<em>${search}</em>"` :''}`;
+}
+
+function filterTable() { renderTable(); }
+
+function setSkeletonRows(tbody, n) {
+  tbody.innerHTML = Array.from({length:n}, () =>
+    `<tr class="skeleton-row">
+      ${Array.from({length:8}, (_,i) =>
+        `<td><div class="skel" style="width:${[20,90,60,60,130,30,110,80][i]}px"></div></td>`
+      ).join('')}
+    </tr>`
+  ).join('');
+}
+
+function esc(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 </script>
+
+<!-- ===== APPS SCRIPT UPDATE NOTICE (hidden — for reference) =====
+Update your Apps Script to include this doGet handler that supports action=read:
+
+function doGet(e) {
+  try {
+    var p = e.parameter;
+    var ss = SpreadsheetApp.openById(p.sheetId);
+    var sheet = ss.getSheetByName(p.sheetName) || ss.getSheets()[0];
+
+    if (p.action === 'append') {
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow(['Thời gian Đề Xuất','Số Phiếu Bảo Hành (BHNB)','Mã Sản Phẩm',
+          'Tên Sản Phẩm','Serial No.','Code Kho Giảm','Mã LK giảm','Tên LK giảm',
+          'Số Lượng','Tình Trạng Đề Nghị Giảm','Mã LK tăng trước đó',
+          'Code Kho Đã Tăng trước đó','Số PNM* đã tăng','Ngày Trả Kho Bán (BHNB)',
+          'Số PXLC* Trả Kho Bán','Trạng Thái PBH (BHNB)','ADMIN NOTE']);
+      }
+      var data = JSON.parse(p.data);
+      sheet.appendRow(data);
+      return ContentService
+        .createTextOutput(JSON.stringify({status:'ok', row: sheet.getLastRow()}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    if (p.action === 'read') {
+      var lastRow = sheet.getLastRow();
+      var rows = [];
+      if (lastRow > 1) {
+        var range = sheet.getRange(2, 1, lastRow - 1, 17); // rows 2..end, cols A..Q
+        rows = range.getValues();
+      }
+      return ContentService
+        .createTextOutput(JSON.stringify({status:'ok', rows: rows}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    return ContentService
+      .createTextOutput(JSON.stringify({status:'error', message:'Unknown action'}))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({status:'error', message: err.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+===== END APPS SCRIPT ===== -->
 </body>
 </html>
