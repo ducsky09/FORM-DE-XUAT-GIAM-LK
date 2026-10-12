@@ -43,6 +43,27 @@ svg.defs{position:absolute;width:0;height:0}
 @keyframes nudgeU{50%{transform:translateY(-4px)}}@keyframes nudgeD{50%{transform:translateY(4px)}}
 .note{color:rgba(255,255,255,.85);font-size:13px;letter-spacing:.03em}
 
+/* banner quảng cáo chạy */
+.ads{position:relative;width:min(660px,100%);aspect-ratio:16/5;border-radius:6px;overflow:hidden;background:#7a000a;border:2px solid rgba(255,255,255,.9);
+  box-shadow:0 8px 0 rgba(0,0,0,.2),0 14px 26px rgba(0,0,0,.35);touch-action:pan-y;user-select:none}
+.ads.loading::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);background-size:200% 100%;animation:skel 1.2s linear infinite}
+@keyframes skel{from{background-position:200% 0}to{background-position:-200% 0}}
+.ads .sl{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s}
+.ads .sl.on{opacity:1;visibility:visible}
+.ads .sl .bg{position:absolute;left:-8%;top:-8%;width:116%;height:116%;object-fit:cover;filter:blur(16px) brightness(.85)}
+.ads .sl .fg{position:relative;display:block;width:100%;height:100%;object-fit:contain;transform:scale(1);transition:transform 6s linear}
+.ads .sl.on .fg{transform:scale(1.035)}
+.ads .nv{position:absolute;top:50%;width:34px;height:34px;margin-top:-17px;border:0;border-radius:50%;background:rgba(255,255,255,.88);color:#c4000d;font:700 18px/1 inherit;cursor:pointer;z-index:3;opacity:0;transition:opacity .2s,transform .15s;display:grid;place-items:center}
+.ads:hover .nv,.ads .nv:focus-visible{opacity:1}.ads .nv:hover{transform:scale(1.1)}
+.ads .nv.p{left:8px}.ads .nv.n{right:8px}
+.ads .dots{position:absolute;left:0;right:0;bottom:9px;display:flex;justify-content:center;gap:7px;z-index:3}
+.ads .dots button{width:9px;height:9px;padding:0;border:0;border-radius:5px;background:rgba(255,255,255,.65);cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.4);transition:width .3s,background .3s}
+.ads .dots button.on{width:24px;background:var(--yel)}
+.ads .bar{position:absolute;left:0;bottom:0;height:3px;background:var(--yel);z-index:3;width:0}
+.ads .bar.run{animation:prog var(--t,4500ms) linear forwards}
+@keyframes prog{to{width:100%}}
+@media(hover:none){.ads .nv{opacity:.85}}
+
 /* icon sản phẩm trang trí nền */
 .ic{position:absolute;z-index:1;width:var(--s,clamp(72px,15vmin,160px));aspect-ratio:1;left:var(--x);top:var(--y);pointer-events:none;
   animation:bobi 5.5s ease-in-out infinite;animation-delay:var(--d,0s)}
@@ -82,7 +103,9 @@ svg.defs{position:absolute;width:0;height:0}
 .frames iframe.on{opacity:1;visibility:visible;transform:none}
 
 @media(max-width:900px){.ic{--s:clamp(56px,16vw,92px);opacity:.6;left:var(--mx);top:var(--my);right:auto}.ic.r{left:var(--mx);right:auto}.title{display:none}.seg button{padding:7px 12px}.home span{display:none}.home{padding:5px 8px}}
-@media(max-height:600px){.note,.sub{display:none}}
+@media(max-width:900px){.ads{aspect-ratio:2.4/1}.note{display:none}.center{gap:12px}.pick{padding:12px 16px}.pick small{display:none}}
+@media(max-height:700px){.note{display:none}}
+@media(max-height:600px){.sub{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -104,9 +127,9 @@ svg.defs{position:absolute;width:0;height:0}
     <div class="ic" style="--x:14%;--y:40%;--mx:28%;--my:11%;--d:-1.2s;--rot:4deg;--s:clamp(75px,15.8vmin,168px)"><svg viewBox="0 0 100 100"><use href="#i-fridge"/></svg></div>
     <div class="ic" style="--x:3%;--y:66%;--mx:52%;--my:13%;--d:-2.4s;--rot:-3deg;--s:clamp(72px,15.0vmin,160px)"><svg viewBox="0 0 100 100"><use href="#i-wash"/></svg></div>
     <div class="ic r" style="--x:3%;--y:10%;--mx:76%;--my:11%;--d:-0.6s;--rot:4deg;--s:clamp(86px,18.0vmin,192px)"><svg viewBox="0 0 100 100"><use href="#i-ac"/></svg></div>
-    <div class="ic r" style="--x:15%;--y:36%;--mx:10%;--my:82%;--d:-1.8s;--rot:-4deg;--s:clamp(72px,15.0vmin,160px)"><svg viewBox="0 0 100 100"><use href="#i-water"/></svg></div>
-    <div class="ic r" style="--x:3%;--y:60%;--mx:40%;--my:83%;--d:-3s;--rot:3deg;--s:clamp(79px,16.5vmin,176px)"><svg viewBox="0 0 100 100"><use href="#i-hob"/></svg></div>
-    <div class="ic r" style="--x:15%;--y:74%;--mx:70%;--my:82%;--d:-3.6s;--rot:-3deg;--s:clamp(72px,15.0vmin,160px)"><svg viewBox="0 0 100 100"><use href="#i-micro"/></svg></div>
+    <div class="ic r" style="--x:15%;--y:36%;--mx:10%;--my:88%;--d:-1.8s;--rot:-4deg;--s:clamp(72px,15.0vmin,160px)"><svg viewBox="0 0 100 100"><use href="#i-water"/></svg></div>
+    <div class="ic r" style="--x:3%;--y:60%;--mx:40%;--my:88%;--d:-3s;--rot:3deg;--s:clamp(79px,16.5vmin,176px)"><svg viewBox="0 0 100 100"><use href="#i-hob"/></svg></div>
+    <div class="ic r" style="--x:15%;--y:74%;--mx:70%;--my:88%;--d:-3.6s;--rot:-3deg;--s:clamp(72px,15.0vmin,160px)"><svg viewBox="0 0 100 100"><use href="#i-micro"/></svg></div>
 
   <div class="center">
     <div class="b-title"><span class="l1">Đề Xuất Linh Kiện</span><span class="l2">Tăng Tồn / Giảm Tồn</span></div>
@@ -114,6 +137,10 @@ svg.defs{position:absolute;width:0;height:0}
     <div class="btns">
       <button class="pick t" id="bT"><span class="ar">▲</span><span><b>Tăng Tồn</b><small>Đề xuất tăng tồn LK bóc tách</small></span></button>
       <button class="pick g" id="bG"><span class="ar">▼</span><span><b>Giảm Tồn</b><small>Phiếu đề xuất giảm LK bảo hành</small></span></button>
+    </div>
+    <div class="ads loading" id="ads" aria-label="Quảng cáo MediaMart" aria-roledescription="carousel">
+      <button class="nv p" id="adP" aria-label="Quảng cáo trước">‹</button><button class="nv n" id="adN" aria-label="Quảng cáo kế tiếp">›</button>
+      <div class="dots" id="adD"></div><div class="bar" id="adB"></div>
     </div>
     <div class="note">Có thể chuyển đổi Tăng Tồn / Giảm Tồn bất kỳ lúc nào</div>
   </div>
@@ -191,6 +218,48 @@ function switchTo(m){
     setTimeout(()=>{w.className='';w.style.transform='scale(0)';busy=false},600)},800);
 }
 $('bT').onclick=()=>choose('t');$('bG').onclick=()=>choose('g');
+
+/* ===== Banner quảng cáo chạy ===== */
+(function(){
+  const URLS=['https://cdn.mediamart.vn/images/banner/ctkm-t10_422f6e3e.png','https://cdn.mediamart.vn/images/banner/av-29_2a72b9c8.jpg','https://cdn.mediamart.vn/images/banner/tl-t7_9cb47651.jpg','https://cdn.mediamart.vn/images/banner/bep-sale_5326be87.png','https://cdn.mediamart.vn/images/banner/coex-sale_41d96c4f.png'];
+  const INTERVAL=4500,box=$('ads'),dotsEl=$('adD'),bar=$('adB');
+  box.style.setProperty('--t',INTERVAL+'ms');
+  let slides=[],dots=[],idx=0,timer=null,hover=false;
+  const load=u=>new Promise(res=>{const im=new Image();im.referrerPolicy='no-referrer';const to=setTimeout(()=>res(false),9000);
+    im.onload=()=>{clearTimeout(to);res(true)};im.onerror=()=>{clearTimeout(to);res(false)};im.src=u});
+  function go(i){
+    if(!slides.length)return;
+    idx=(i+slides.length)%slides.length;
+    slides.forEach((s,k)=>s.classList.toggle('on',k===idx));
+    dots.forEach((d,k)=>d.classList.toggle('on',k===idx));
+    bar.classList.remove('run');void bar.offsetWidth;bar.classList.add('run');
+    clearTimeout(timer);timer=setTimeout(tick,INTERVAL);
+  }
+  function tick(){
+    if(hover||document.hidden||$('landing').classList.contains('hide')){timer=setTimeout(tick,800);bar.classList.remove('run');return}
+    go(idx+1);
+  }
+  Promise.all(URLS.map(load)).then(ok=>{
+    const good=URLS.filter((u,k)=>ok[k]);
+    box.classList.remove('loading');
+    if(!good.length){box.style.display='none';return}   // mạng chặn CDN → ẩn banner, không ảnh hưởng chức năng
+    good.forEach((u,k)=>{
+      const s=document.createElement('div');s.className='sl';
+      s.innerHTML='<img class="bg" alt="" referrerpolicy="no-referrer" src="'+u+'"><img class="fg" alt="Quảng cáo MediaMart '+(k+1)+'" referrerpolicy="no-referrer" src="'+u+'" draggable="false">';
+      box.insertBefore(s,box.querySelector('.nv'));slides.push(s);
+      const d=document.createElement('button');d.setAttribute('aria-label','Quảng cáo '+(k+1));d.onclick=()=>go(k);dotsEl.appendChild(d);dots.push(d);
+    });
+    if(good.length<2){$('adP').style.display=$('adN').style.display='none';dotsEl.style.display='none'}
+    go(0);
+  });
+  $('adP').onclick=()=>go(idx-1);$('adN').onclick=()=>go(idx+1);
+  box.addEventListener('mouseenter',()=>{hover=true;bar.classList.remove('run')});
+  box.addEventListener('mouseleave',()=>{hover=false;go(idx)});
+  let x0=null;
+  box.addEventListener('pointerdown',e=>{x0=e.clientX});
+  box.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1))});
+  document.addEventListener('keydown',e=>{if($('landing').classList.contains('hide'))return;if(e.key==='ArrowLeft')go(idx-1);if(e.key==='ArrowRight')go(idx+1)});
+})();
 $('home').onclick=home;$('sT').onclick=()=>switchTo('t');$('sG').onclick=()=>switchTo('g');
 </script>
 </body>
